@@ -26,8 +26,8 @@ exports.createBootcamp = (req, res, next) => {
 //@access  Private
 exports.updateBootcamp = (req, res, next) => {
   res
-  .status(200)
-  .json({ success: true, message: `  Update bootcamp ${req.params.id} ` });
+    .status(200)
+    .json({ success: true, message: `  Update bootcamp ${req.params.id} ` });
 };
 
 // @desc   Delete bootcamp
