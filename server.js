@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
+const fileUpload = require('express-fileupload');
 const PORT = process.env.PORT || 5000;
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
@@ -18,10 +19,14 @@ const coursesRouter = require('./routes/courses.routes.js');
 
 const app = express();
 app.use(express.json());
+
 // Dev loggin middleware
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+// File uploading
+app.use(fileUpload());
 
 // Mount routers
 app.use('/api/v1/bootcamps', bootcampsRouter);
