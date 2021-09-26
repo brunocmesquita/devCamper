@@ -17,6 +17,7 @@ connectDB();
 // Route files
 const bootcampsRouter = require('./routes/bootcamps.routes.js');
 const coursesRouter = require('./routes/courses.routes.js');
+const authRouter = require('./routes/auth.routes.js');
 
 const app = express();
 app.use(express.json());
@@ -35,6 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Mount routers
 app.use('/api/v1/bootcamps', bootcampsRouter);
 app.use('/api/v1/courses', coursesRouter);
+app.use('/api/v1/auth', authRouter);
+
 app.use(errorHandler);
 
 const server = app.listen(PORT, () => {
