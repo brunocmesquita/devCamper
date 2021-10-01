@@ -9,6 +9,8 @@ const PORT = process.env.PORT || 5000;
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet');
+const xssClean = require('xss-clean');
 
 // Load env vars
 dotenv.config({ path: './config/config.env' });
@@ -37,6 +39,12 @@ app.use(fileUpload());
 
 // Sanitize data
 app.use(mongoSanitize());
+
+// Set security headers
+app.use(helmet());
+
+// Prevent XSS attacks
+app.use(xssClean());
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
