@@ -20,6 +20,7 @@ const bootcampsRouter = require('./routes/bootcamps.routes.js');
 const coursesRouter = require('./routes/courses.routes.js');
 const authRouter = require('./routes/auth.routes.js');
 const usersRouter = require('./routes/users.routes.js');
+const reviewsRouter = require('./routes/reviews.routes.js');
 
 const app = express();
 app.use(express.json());
@@ -41,6 +42,7 @@ app.use('/api/v1/bootcamps', bootcampsRouter);
 app.use('/api/v1/courses', coursesRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/reviews', reviewsRouter);
 
 app.use(errorHandler);
 
