@@ -8,6 +8,8 @@
 
 > DevCamper backend api
 
+This API is for study purposes from the Traversy Media course on Udemy.
+
 ## Install
 
 ```sh
